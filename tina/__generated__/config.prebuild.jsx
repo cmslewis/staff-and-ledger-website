@@ -131,9 +131,12 @@ var journalCollection = {
 
 // tina/config.ts
 var branch = process.env.NEXT_PUBLIC_TINA_BRANCH || process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
+var clientId = process.env.NEXT_PUBLIC_TINA_CLIENT_ID;
+var contentApiUrlOverride = clientId && branch ? `https://content.tinajs.io/v1/content/${clientId}/github/${branch}` : void 0;
 var config_default = defineConfig({
   branch,
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
+  clientId,
+  contentApiUrlOverride,
   token: process.env.TINA_TOKEN,
   build: {
     outputFolder: "admin",

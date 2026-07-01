@@ -1,5 +1,5 @@
 node_modules/
-tina/__generated__/
+tina/__generated__
 dist/
 .astro/
 .netlify/

@@ -9,7 +9,7 @@
     "build:cms": "tinacms build",
     "preview": "astro preview",
     "astro": "astro",
-    "tina": "tinacms dev -c \"astro dev\""
+    "tina": "tinacms dev --datalayer-port 9001 -c \"astro dev\""
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",
