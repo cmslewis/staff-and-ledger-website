@@ -15,9 +15,10 @@ const components = {
 ---
 
 {blocks.map((block) => {
-  const Component = components[block.type];
+  const blockType = block._template ?? block.type;
+  const Component = components[blockType];
   if (!Component) {
-    throw new Error(`Unknown homepage block type: ${block.type}`);
+    throw new Error(`Unknown homepage block type: ${blockType}`);
   }
   return <Component block={block} />;
 })}
