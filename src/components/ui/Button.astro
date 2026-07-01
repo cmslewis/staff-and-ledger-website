@@ -8,7 +8,7 @@ interface Props {
 const { href, label, tone = "dark" } = Astro.props;
 const classes = tone === "paper"
   ? "border-ink/35 text-ink hover:bg-ink hover:text-paper"
-  : "border-accent/65 text-accent hover:bg-accent hover:text-ink";
+  : "border-sand-3 text-accent hover:bg-sand-4 hover:text-ink";
 ---
 
 <a class={`inline-flex min-h-12 items-center border px-5 font-sans text-xs uppercase tracking-[0.16em] transition ${classes}`} href={href}>

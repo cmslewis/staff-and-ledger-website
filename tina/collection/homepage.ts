@@ -22,6 +22,13 @@ export const homepageCollection: Collection = {
             { type: "string", name: "sectionLabel", label: "Section label" },
             { type: "string", name: "headline", label: "Hero headline", required: true, ui: { component: "textarea" } },
             { type: "string", name: "body", label: "Hero body text", ui: { component: "textarea" } },
+            {
+              type: "string",
+              name: "foundedBy",
+              label: "Founded by text",
+              description: "Use *asterisks* around a phrase to highlight it.",
+              ui: { component: "textarea" }
+            },
             { type: "image", name: "image", label: "Hero background image" },
             { type: "string", name: "imageAlt", label: "Hero image alt text" },
             { type: "string", name: "ctaLabel", label: "Primary button label" },

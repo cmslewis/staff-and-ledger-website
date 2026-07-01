@@ -13,8 +13,8 @@
   --color-moss-1: #91ab67;
   --color-moss-2: #5b6c3f;
   --color-moss-3: #2a331b;
-  --color-page: var(--color-sand-6);
-  --color-surface: var(--color-sand-5);
+  --color-page: var(--color-sand-5);
+  --color-surface: var(--color-sand-4);
   --color-paper: var(--color-sand-1);
   --color-ink: var(--color-sand-6);
   --color-text: var(--color-sand-1);
@@ -31,12 +31,13 @@
   --text-caption: 0.75rem;
   --text-body: 1rem;
   --text-lede: 1.1875rem;
+  --text-lede-md: 1.25rem;
   --text-section-sm: 2.5rem;
   --text-section-md: 3.75rem;
   --text-section-lg: 5.5rem;
-  --text-hero-sm: 3rem;
-  --text-hero-md: 4.75rem;
-  --text-hero-lg: 6rem;
+  --text-hero-sm: 2rem;
+  --text-hero-md: 3rem;
+  --text-hero-lg: 4rem;
 
   --spacing: 0.25rem;
   --container-site: 90rem;
