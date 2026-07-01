@@ -1,10 +1,10 @@
 ---
+import navigation from "../../data/navigation.json";
 import Logo from "./Logo.astro";
 import MobileNavIsland from "./MobileNavIsland";
-import navigation from "../../data/navigation.json";
 ---
 
-<header class="fixed inset-x-0 top-0 z-40 border-b border-sand-1/10 bg-page/78 backdrop-blur-md">
+<header class="reveal fixed inset-x-0 top-0 z-40 border-b border-sand-1/10 bg-page/78 backdrop-blur-md">
   <div class="site-shell flex h-20 items-center justify-between gap-8">
     <Logo />
     <nav class="hidden items-center gap-8 font-sans text-[0.72rem] uppercase tracking-[0.16em] text-sand-1/74 lg:flex" aria-label="Primary navigation">
@@ -14,3 +14,25 @@ import navigation from "../../data/navigation.json";
     <MobileNavIsland client:load items={navigation.primary} cta={navigation.cta} />
   </div>
 </header>
+
+<style>
+  .reveal {
+    animation: reveal 2.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    opacity: 0;
+    animation-delay: 200ms;
+  }
+
+  @keyframes reveal {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
