@@ -129,6 +129,83 @@ var journalCollection = {
   ]
 };
 
+// tina/collection/archive.ts
+var archiveCollection = {
+  name: "archive",
+  label: "Archive",
+  path: "src/content/archive",
+  format: "md",
+  fields: [
+    { type: "string", name: "title", label: "Archive entry title", isTitle: true, required: true },
+    { type: "string", name: "description", label: "Archive summary", ui: { component: "textarea" } },
+    { type: "image", name: "image", label: "Archive image" },
+    { type: "string", name: "imageAlt", label: "Archive image alt text" },
+    { type: "rich-text", name: "body", label: "Archive entry body", isBody: true }
+  ]
+};
+
+// tina/collection/publishing.ts
+var publishingCollection = {
+  name: "publishing",
+  label: "Publishing",
+  path: "src/content/publishing",
+  format: "md",
+  fields: [
+    { type: "string", name: "title", label: "Edition title", isTitle: true, required: true },
+    { type: "string", name: "description", label: "Edition summary", ui: { component: "textarea" } },
+    { type: "image", name: "image", label: "Edition image" },
+    { type: "string", name: "imageAlt", label: "Edition image alt text" },
+    { type: "rich-text", name: "body", label: "Edition body", isBody: true }
+  ]
+};
+
+// tina/collection/people.ts
+var peopleCollection = {
+  name: "people",
+  label: "People",
+  path: "src/content/people",
+  format: "md",
+  fields: [
+    { type: "string", name: "title", label: "Person or role name", isTitle: true, required: true },
+    { type: "string", name: "description", label: "Short bio or role summary", ui: { component: "textarea" } },
+    { type: "image", name: "image", label: "Portrait image" },
+    { type: "string", name: "imageAlt", label: "Portrait image alt text" },
+    { type: "rich-text", name: "body", label: "Profile body", isBody: true }
+  ]
+};
+
+// tina/collection/navigation.ts
+var navigationCollection = {
+  name: "navigation",
+  label: "Navigation",
+  path: "src/data",
+  format: "json",
+  match: {
+    include: "navigation"
+  },
+  fields: [
+    {
+      type: "object",
+      name: "primary",
+      label: "Primary navigation links",
+      list: true,
+      fields: [
+        { type: "string", name: "label", label: "Link label", required: true },
+        { type: "string", name: "url", label: "Link URL", required: true }
+      ]
+    },
+    {
+      type: "object",
+      name: "cta",
+      label: "Header call to action",
+      fields: [
+        { type: "string", name: "label", label: "Button label", required: true },
+        { type: "string", name: "url", label: "Button URL", required: true }
+      ]
+    }
+  ]
+};
+
 // tina/config.ts
 var branch = process.env.NEXT_PUBLIC_TINA_BRANCH || process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
 var clientId = process.env.NEXT_PUBLIC_TINA_CLIENT_ID;
@@ -151,9 +228,13 @@ var config_default = defineConfig({
   schema: {
     collections: [
       siteSettingsCollection,
+      navigationCollection,
       homepageCollection,
       eventCollection,
-      journalCollection
+      journalCollection,
+      archiveCollection,
+      publishingCollection,
+      peopleCollection
     ]
   }
 });

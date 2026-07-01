@@ -3,6 +3,10 @@ import { siteSettingsCollection } from "./collection/settings";
 import { homepageCollection } from "./collection/homepage";
 import { eventCollection } from "./collection/event";
 import { journalCollection } from "./collection/journal";
+import { archiveCollection } from "./collection/archive";
+import { publishingCollection } from "./collection/publishing";
+import { peopleCollection } from "./collection/people";
+import { navigationCollection } from "./collection/navigation";
 
 const branch =
   process.env.NEXT_PUBLIC_TINA_BRANCH ||
@@ -33,9 +37,13 @@ export default defineConfig({
   schema: {
     collections: [
       siteSettingsCollection,
+      navigationCollection,
       homepageCollection,
       eventCollection,
-      journalCollection
+      journalCollection,
+      archiveCollection,
+      publishingCollection,
+      peopleCollection
     ]
   }
 });

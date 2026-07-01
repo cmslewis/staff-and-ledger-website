@@ -3,25 +3,48 @@
     {
       "sectionLabel": "Welcome",
       "headline": "Extraordinary vocal music. Performed, commissioned, and preserved.",
-      "body": "Staff & Ledger is a professional vocal ensemble and publishing house dedicated to the music of our time.",
-      "image": "/images/uploads/images/generated/hero-folio-stage.png",
+      "body": "Staff & Ledger is a new professional vocal ensemble and publishing house dedicated to the music of our time. Founded by artists from Chanticleer, Volti, Clerestory, Aeternum, Byrd Ensemble, Fog City Singers, American Bach Soloists, and the San Francisco Symphony Chorus.",
+      "image": "/images/generated/hero-folio-stage.png",
       "imageAlt": "A dark rehearsal room with warm light on music stands and score folios.",
       "ctaLabel": "Reserve tickets",
       "ctaUrl": "/events/archive-of-air",
-      "annotation": "Manuscript, archive, stage, and ledger become one visual system.",
+      "annotation": "San Francisco",
       "_template": "hero"
     },
     {
       "sectionLabel": "Current season",
-      "_template": "hero"
+      "event": "archive-of-air",
+      "_template": "featured_event"
     },
     {
       "sectionLabel": "Institutional work",
-      "_template": "hero"
+      "items": [
+        {
+          "title": "Perform",
+          "body": "Intimate concerts. New music. World premieres.",
+          "url": "/ensemble",
+          "folio": "01"
+        },
+        {
+          "title": "Publish",
+          "body": "Beautiful editions. Thoughtful scores. Built to last.",
+          "url": "/publishing",
+          "folio": "02"
+        },
+        {
+          "title": "Share",
+          "body": "Rehearsals. Stories. Music in motion.",
+          "url": "/journal",
+          "folio": "03"
+        }
+      ],
+      "_template": "pillar_grid"
     },
     {
       "sectionLabel": "Manifesto",
-      "_template": "hero"
+      "text": "We believe the choral composer's instrument is people.",
+      "accent": "We exist to help great music travel.",
+      "_template": "manifesto"
     }
   ]
 }

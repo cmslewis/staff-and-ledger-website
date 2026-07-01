@@ -2,17 +2,17 @@
 import { getCollection } from "astro:content";
 import ContentLayout from "../layouts/ContentLayout.astro";
 
-const events = await getCollection("events");
+const entries = await getCollection("archive");
 ---
 
 <ContentLayout title="An archive of performed music." eyebrow="Archive" description="Concerts, commissions, programs, and edition records gathered as a public institutional memory.">
   <div class="grid gap-6">
-    {events.map((event) => (
-      <a class="grid gap-3 border-t border-sand-1/14 py-6 transition hover:border-accent md:grid-cols-[10rem_1fr]" href={`/events/${event.slug}`}>
-        <p class="font-mono text-[0.68rem] uppercase tracking-[0.14em] text-accent">{event.data.catalogNumber}</p>
+    {entries.map((entry) => (
+      <a class="grid gap-3 border-t border-sand-1/14 py-6 transition hover:border-accent md:grid-cols-[10rem_1fr]" href={`/archive/${entry.slug}`}>
+        <p class="font-mono text-[0.68rem] uppercase tracking-[0.14em] text-accent">Archive</p>
         <div>
-          <h2 class="font-display text-3xl text-sand-1">{event.data.title}</h2>
-          <p class="mt-2 font-sans text-sm leading-7 text-sand-1/62">{event.data.venue} · {event.data.city}</p>
+          <h2 class="font-display text-3xl text-sand-1">{entry.data.title}</h2>
+          <p class="mt-2 font-sans text-sm leading-7 text-sand-1/62">{entry.data.description}</p>
         </div>
       </a>
     ))}

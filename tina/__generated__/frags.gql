@@ -7,6 +7,20 @@ fragment SiteSettingsParts on SiteSettings {
   ogImage
 }
 
+fragment NavigationParts on Navigation {
+  __typename
+  primary {
+    __typename
+    label
+    url
+  }
+  cta {
+    __typename
+    label
+    url
+  }
+}
+
 fragment HomepageParts on Homepage {
   __typename
   blocks {
@@ -65,6 +79,33 @@ fragment JournalParts on Journal {
   dek
   date
   author
+  image
+  imageAlt
+  body
+}
+
+fragment ArchiveParts on Archive {
+  __typename
+  title
+  description
+  image
+  imageAlt
+  body
+}
+
+fragment PublishingParts on Publishing {
+  __typename
+  title
+  description
+  image
+  imageAlt
+  body
+}
+
+fragment PeopleParts on People {
+  __typename
+  title
+  description
   image
   imageAlt
   body
