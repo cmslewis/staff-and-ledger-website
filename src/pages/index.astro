@@ -1,0 +1,10 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HomeBlocks from "../components/blocks/HomeBlocks.astro";
+import homepage from "../data/homepage.json";
+import site from "../data/site.json";
+---
+
+<BaseLayout title={site.name} description={site.description}>
+  <HomeBlocks blocks={homepage.blocks} />
+</BaseLayout>

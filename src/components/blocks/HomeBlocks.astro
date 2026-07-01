@@ -1,0 +1,23 @@
+---
+import HeroBlock from "./HeroBlock.astro";
+import FeaturedEventBlock from "./FeaturedEventBlock.astro";
+import PillarGridBlock from "./PillarGridBlock.astro";
+import ManifestoBlock from "./ManifestoBlock.astro";
+
+const { blocks } = Astro.props;
+
+const components = {
+  hero: HeroBlock,
+  featured_event: FeaturedEventBlock,
+  pillar_grid: PillarGridBlock,
+  manifesto: ManifestoBlock
+};
+---
+
+{blocks.map((block) => {
+  const Component = components[block.type];
+  if (!Component) {
+    throw new Error(`Unknown homepage block type: ${block.type}`);
+  }
+  return <Component block={block} />;
+})}

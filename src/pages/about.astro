@@ -1,0 +1,11 @@
+---
+import ContentLayout from "../layouts/ContentLayout.astro";
+import site from "../data/site.json";
+---
+
+<ContentLayout title="A cultural institution for vocal music now." eyebrow="About" description="Staff & Ledger exists to perform, commission, preserve, and publish extraordinary vocal music with editorial discipline and warmth.">
+  <div class="grid gap-8 font-sans text-base leading-8 text-sand-1/72 md:grid-cols-2">
+    <p>The organization brings together concert practice, publishing craft, and archival attention so that new music can travel farther than a single performance.</p>
+    <p>For bookings, publishing inquiries, and general correspondence, write to <a class="text-accent underline decoration-accent/40 underline-offset-4" href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.</p>
+  </div>
+</ContentLayout>

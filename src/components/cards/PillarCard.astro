@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+  body: string;
+  url: string;
+  folio: string;
+}
+
+const { title, body, url, folio } = Astro.props;
+---
+
+<a class="group block border-t border-ink/20 py-8 transition hover:border-rust-1" href={url}>
+  <p class="font-mono text-[0.68rem] uppercase tracking-[0.14em] text-rust-2">{folio}</p>
+  <h3 class="mt-8 font-display text-4xl text-ink">{title}</h3>
+  <p class="mt-5 max-w-sm font-sans text-sm leading-7 text-ink/66">{body}</p>
+  <span class="mt-10 inline-block font-mono text-[0.68rem] uppercase tracking-[0.14em] text-rust-2 transition group-hover:translate-x-2">Open folio</span>
+</a>

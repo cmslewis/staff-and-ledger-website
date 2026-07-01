@@ -1,0 +1,29 @@
+---
+import Button from "../ui/Button.astro";
+import SectionLabel from "../ui/SectionLabel.astro";
+
+const { block } = Astro.props;
+---
+
+<section class="relative min-h-screen overflow-hidden bg-page pt-20">
+  <img class="absolute inset-0 h-full w-full object-cover opacity-72" src={block.image} alt={block.imageAlt} loading="eager" />
+  <div class="absolute inset-0 bg-[linear-gradient(90deg,var(--color-page)_0%,rgb(14_11_6/0.84)_34%,rgb(14_11_6/0.32)_78%),linear-gradient(0deg,var(--color-page)_0%,transparent_42%)]"></div>
+  <div class="absolute inset-x-0 bottom-0 h-32 staff-lines text-sand-1/15"></div>
+  <div class="site-shell relative z-10 flex min-h-[calc(100vh-5rem)] items-center py-[clamp(48px,7vw,96px)]">
+    <div class="site-grid w-full items-end gap-y-12">
+      <div class="col-span-4 md:col-span-7 lg:col-span-8">
+        <SectionLabel label={block.sectionLabel} mark="SL/01" />
+        <h1 class="mt-8 max-w-5xl font-display text-hero-sm leading-[0.98] text-sand-1 md:text-hero-md lg:text-hero-lg">
+          {block.headline}
+        </h1>
+      </div>
+      <div class="col-span-4 md:col-span-4 md:col-start-5 lg:col-span-3 lg:col-start-10">
+        <p class="font-serif text-lede leading-8 text-sand-1/78">{block.body}</p>
+        <div class="mt-8">
+          <Button href={block.ctaUrl} label={block.ctaLabel} />
+        </div>
+        <p class="mt-12 border-l border-accent/50 pl-4 font-mono text-[0.68rem] uppercase leading-5 tracking-[0.14em] text-sand-2/78">{block.annotation}</p>
+      </div>
+    </div>
+  </div>
+</section>

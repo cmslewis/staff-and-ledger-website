@@ -1,0 +1,16 @@
+---
+import Logo from "./Logo.astro";
+import MobileNavIsland from "./MobileNavIsland";
+import navigation from "../../data/navigation.json";
+---
+
+<header class="fixed inset-x-0 top-0 z-40 border-b border-sand-1/10 bg-page/78 backdrop-blur-md">
+  <div class="site-shell flex h-20 items-center justify-between gap-8">
+    <Logo />
+    <nav class="hidden items-center gap-8 font-sans text-[0.72rem] uppercase tracking-[0.16em] text-sand-1/74 lg:flex" aria-label="Primary navigation">
+      {navigation.primary.map((item) => <a class="transition hover:text-accent" href={item.url}>{item.label}</a>)}
+      <a class="border border-accent/55 px-4 py-3 text-accent transition hover:bg-accent hover:text-ink" href={navigation.cta.url}>{navigation.cta.label}</a>
+    </nav>
+    <MobileNavIsland client:load items={navigation.primary} cta={navigation.cta} />
+  </div>
+</header>

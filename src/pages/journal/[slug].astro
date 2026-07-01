@@ -1,0 +1,30 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("journal");
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={post.data.title} description={post.data.dek} image={post.data.image}>
+  <article class="section-y min-h-screen pt-36">
+    <div class="site-shell site-grid gap-y-12">
+      <aside class="col-span-4 md:col-span-3">
+        <p class="folio-label">Journal</p>
+        <p class="mt-8 font-mono text-[0.68rem] uppercase tracking-[0.14em] text-sand-3">{post.data.date}<br />{post.data.author}</p>
+      </aside>
+      <div class="col-span-4 md:col-span-7 lg:col-span-8 lg:col-start-5">
+        <h1 class="font-display text-section-sm leading-tight text-sand-1 md:text-section-lg">{post.data.title}</h1>
+        <p class="mt-6 max-w-3xl font-serif text-2xl italic leading-10 text-accent">{post.data.dek}</p>
+        <div class="prose prose-invert mt-16 max-w-3xl font-serif text-lg leading-9 text-sand-1/76">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

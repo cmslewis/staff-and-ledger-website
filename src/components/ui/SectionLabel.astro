@@ -1,0 +1,8 @@
+---
+const { label, mark } = Astro.props;
+---
+
+<div class="flex items-center gap-4">
+  {mark && <span class="font-mono text-[0.68rem] text-sand-3">{mark}</span>}
+  <p class="folio-label">{label}</p>
+</div>

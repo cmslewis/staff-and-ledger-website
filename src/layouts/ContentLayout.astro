@@ -1,0 +1,28 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+  eyebrow?: string;
+  description: string;
+}
+
+const { title, eyebrow = "Staff & Ledger", description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="section-y min-h-[70vh] pt-36">
+    <div class="site-shell site-grid gap-y-12">
+      <div class="col-span-4 md:col-span-3">
+        <p class="folio-label">{eyebrow}</p>
+      </div>
+      <div class="col-span-4 md:col-span-7 lg:col-span-8 lg:col-start-5">
+        <h1 class="max-w-4xl font-display text-section-sm leading-tight text-sand-1 md:text-section-lg">{title}</h1>
+        <p class="mt-8 max-w-2xl font-serif text-2xl leading-10 text-sand-1/72">{description}</p>
+        <div class="mt-16 rule-top pt-12">
+          <slot />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

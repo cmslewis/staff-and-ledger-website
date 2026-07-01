@@ -1,0 +1,68 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Button from "../../components/ui/Button.astro";
+import site from "../../data/site.json";
+
+export async function getStaticPaths() {
+  const events = await getCollection("events");
+  return events.map((event) => ({ params: { slug: event.slug }, props: { event } }));
+}
+
+const { event } = Astro.props;
+const { Content } = await render(event);
+const formattedDate = new Intl.DateTimeFormat("en", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+  timeZone: "UTC"
+}).format(new Date(event.data.date));
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "MusicEvent",
+  name: event.data.title,
+  description: event.data.description,
+  startDate: `${event.data.date}T19:30:00`,
+  location: {
+    "@type": "Place",
+    name: event.data.venue,
+    address: event.data.city
+  },
+  image: event.data.image ? new URL(event.data.image, site.url).toString() : undefined,
+  offers: event.data.ticketUrl ? {
+    "@type": "Offer",
+    url: event.data.ticketUrl,
+    availability: "https://schema.org/InStock"
+  } : undefined
+};
+---
+
+<BaseLayout title={event.data.title} description={event.data.description} image={event.data.image}>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <article class="section-y min-h-screen pt-36">
+    <div class="site-shell site-grid gap-y-12">
+      <aside class="col-span-4 md:col-span-3">
+        <p class="folio-label">{event.data.catalogNumber}</p>
+        <dl class="mt-10 grid gap-6 font-sans text-sm leading-7 text-sand-1/72">
+          <div>
+            <dt class="folio-label">Date</dt>
+            <dd class="mt-2 text-sand-1">{formattedDate}<br />{event.data.time}</dd>
+          </div>
+          <div>
+            <dt class="folio-label">Venue</dt>
+            <dd class="mt-2 text-sand-1">{event.data.venue}<br />{event.data.city}</dd>
+          </div>
+        </dl>
+      </aside>
+      <div class="col-span-4 md:col-span-7 lg:col-span-8 lg:col-start-5">
+        <h1 class="font-display text-section-sm leading-tight text-sand-1 md:text-section-lg">{event.data.title}</h1>
+        <p class="mt-6 max-w-3xl font-serif text-2xl italic leading-10 text-accent">{event.data.subtitle}</p>
+        {event.data.ticketUrl && <div class="mt-10"><Button href={event.data.ticketUrl} label="Reserve tickets" /></div>}
+        <div class="prose prose-invert mt-16 max-w-3xl font-serif text-lg leading-9 text-sand-1/76">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

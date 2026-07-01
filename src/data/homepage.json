@@ -1,0 +1,50 @@
+{
+  "blocks": [
+    {
+      "type": "hero",
+      "sectionLabel": "Season folio 01",
+      "headline": "Extraordinary vocal music. Performed, commissioned, and preserved.",
+      "body": "Staff & Ledger is a professional vocal ensemble and publishing house dedicated to the music of our time.",
+      "image": "/images/generated/hero-folio-stage.png",
+      "imageAlt": "A dark rehearsal room with warm light on music stands and score folios.",
+      "ctaLabel": "Reserve tickets",
+      "ctaUrl": "/events/archive-of-air",
+      "annotation": "Manuscript, archive, stage, and ledger become one visual system."
+    },
+    {
+      "type": "featured_event",
+      "sectionLabel": "Current season",
+      "event": "archive-of-air"
+    },
+    {
+      "type": "pillar_grid",
+      "sectionLabel": "Institutional work",
+      "items": [
+        {
+          "title": "Perform",
+          "body": "Intimate concerts, new commissions, and programs shaped with archival care.",
+          "url": "/ensemble",
+          "folio": "Performance"
+        },
+        {
+          "title": "Publish",
+          "body": "Beautiful editions and practical scores built for rehearsal rooms and long shelves.",
+          "url": "/publishing",
+          "folio": "Editions"
+        },
+        {
+          "title": "Share",
+          "body": "Notes from rehearsal, essays from composers, and records of music in motion.",
+          "url": "/journal",
+          "folio": "Journal"
+        }
+      ]
+    },
+    {
+      "type": "manifesto",
+      "sectionLabel": "Manifesto",
+      "text": "We believe the choral composer's instrument is people.",
+      "accent": "We exist to help great music travel."
+    }
+  ]
+}

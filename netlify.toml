@@ -1,0 +1,9 @@
+[build]
+  command = "npx tinacms build && npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "https://staffandledger.com/*"
+  to = "https://www.staffandledger.com/:splat"
+  status = 301
+  force = true

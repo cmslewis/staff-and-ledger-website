@@ -1,0 +1,52 @@
+---
+import { getEntry } from "astro:content";
+import Button from "../ui/Button.astro";
+import SectionLabel from "../ui/SectionLabel.astro";
+
+const { block } = Astro.props;
+const event = await getEntry("events", block.event);
+
+if (!event) {
+  throw new Error(`Featured event not found: ${block.event}`);
+}
+
+const formattedDate = new Intl.DateTimeFormat("en", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+  timeZone: "UTC"
+}).format(new Date(event.data.date));
+---
+
+<section class="section-y bg-page">
+  <div class="site-shell site-grid gap-y-12">
+    <div class="col-span-4 md:col-span-3 lg:col-span-3">
+      <SectionLabel label={block.sectionLabel} mark={event.data.catalogNumber} />
+    </div>
+    <article class="col-span-4 border-t border-sand-1/16 pt-8 md:col-span-5 lg:col-span-8 lg:col-start-5">
+      <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <div>
+          <p class="font-mono text-[0.68rem] uppercase tracking-[0.14em] text-sand-3">Featured concert</p>
+          <h2 class="mt-5 max-w-3xl font-display text-section-sm leading-tight text-sand-1 md:text-section-md">{event.data.title}</h2>
+          <p class="mt-5 max-w-2xl font-serif text-2xl italic leading-10 text-accent">{event.data.subtitle}</p>
+        </div>
+        <div class="border-l border-sand-1/14 pl-6 font-sans text-sm leading-7 text-sand-1/74">
+          <dl class="grid gap-5">
+            <div>
+              <dt class="folio-label">Date</dt>
+              <dd class="mt-1 text-sand-1">{formattedDate} · {event.data.time}</dd>
+            </div>
+            <div>
+              <dt class="folio-label">Venue</dt>
+              <dd class="mt-1 text-sand-1">{event.data.venue}<br />{event.data.city}</dd>
+            </div>
+          </dl>
+          <p class="mt-8">{event.data.description}</p>
+          <div class="mt-8">
+            <Button href={`/events/${event.slug}`} label="View concert folio" />
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

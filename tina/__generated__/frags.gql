@@ -1,0 +1,71 @@
+fragment SiteSettingsParts on SiteSettings {
+  __typename
+  name
+  description
+  url
+  contactEmail
+  ogImage
+}
+
+fragment HomepageParts on Homepage {
+  __typename
+  blocks {
+    __typename
+    ... on HomepageBlocksHero {
+      sectionLabel
+      headline
+      body
+      image
+      imageAlt
+      ctaLabel
+      ctaUrl
+      annotation
+    }
+    ... on HomepageBlocksFeatured_event {
+      sectionLabel
+      event
+    }
+    ... on HomepageBlocksPillar_grid {
+      sectionLabel
+      items {
+        __typename
+        title
+        body
+        url
+        folio
+      }
+    }
+    ... on HomepageBlocksManifesto {
+      sectionLabel
+      text
+      accent
+    }
+  }
+}
+
+fragment EventsParts on Events {
+  __typename
+  title
+  subtitle
+  date
+  time
+  venue
+  city
+  ticketUrl
+  image
+  imageAlt
+  description
+  catalogNumber
+  body
+}
+
+fragment JournalParts on Journal {
+  __typename
+  title
+  dek
+  date
+  author
+  image
+  imageAlt
+  body
+}

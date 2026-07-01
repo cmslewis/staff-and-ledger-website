@@ -1,0 +1,13 @@
+{
+  "primary": [
+    { "label": "Ensemble", "url": "/ensemble" },
+    { "label": "Publishing", "url": "/publishing" },
+    { "label": "Archive", "url": "/archive" },
+    { "label": "Journal", "url": "/journal" },
+    { "label": "About", "url": "/about" }
+  ],
+  "cta": {
+    "label": "Reserve tickets",
+    "url": "/events/archive-of-air"
+  }
+}
