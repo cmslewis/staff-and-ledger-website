@@ -1,10 +1,10 @@
 {
   "blocks": [
     {
-      "sectionLabel": "Welcome",
+      "sectionLabel": "Welcome!",
       "headline": "Extraordinary vocal music. Performed, commissioned, and preserved.",
       "body": "Staff & Ledger is a new professional vocal ensemble and publishing house dedicated to the music of our time. Founded by artists from Chanticleer, Volti, Clerestory, Aeternum, Byrd Ensemble, Fog City Singers, American Bach Soloists, and the San Francisco Symphony Chorus.",
-      "image": "/images/generated/hero-folio-stage.png",
+      "image": "/images/uploads/images/generated/hero-folio-stage.png",
       "imageAlt": "A dark rehearsal room with warm light on music stands and score folios.",
       "ctaLabel": "Reserve tickets",
       "ctaUrl": "/events/archive-of-air",
