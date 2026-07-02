@@ -28,7 +28,7 @@ const foundedByParts = String(block.foundedBy ?? "")
           )
         )}
 
-        <div class="w-1/6 border-b border-b-muted mt-8 md:mt-12"></div>
+        <span class="hero-title-rule mt-8 block w-1/6 border-b border-b-muted md:mt-12" aria-hidden="true"></span>
       </h1>
 
 
@@ -36,10 +36,10 @@ const foundedByParts = String(block.foundedBy ?? "")
        <div class="folio-label hero-reveal hero-reveal-2">{block.annotation}</div>
 
         <!-- Blurb -->
-        <p class="hero-reveal hero-reveal-3 font-serif text-lede leading-8 text-sand-1/78 md:text-lede-md">{block.body}</p>
+        <p class="hero-reveal hero-reveal-2 font-serif text-lede leading-8 text-sand-1/78 md:text-lede-md">{block.body}</p>
 
         <!-- Founded By -->
-        <p class="hero-reveal hero-reveal-4 font-serif text-lede leading-8 text-sand-1/78 md:text-lede-md">
+        <p class="hero-reveal hero-reveal-2 font-serif text-lede leading-8 text-sand-1/78 md:text-lede-md">
           {foundedByParts.map((part) =>
             part.startsWith("*") && part.endsWith("*") ? (
               <span class="text-accent">{part.slice(1, -1)}</span>
@@ -50,7 +50,7 @@ const foundedByParts = String(block.foundedBy ?? "")
         </p>
 
         <!-- Button -->
-        {block.ctaUrl && block.ctaUrl && <div class="hero-reveal hero-reveal-5 mt-2">
+        {block.ctaUrl && block.ctaUrl && <div class="hero-reveal hero-reveal-2 mt-2">
           <Button href={block.ctaUrl} label={block.ctaLabel} />
         </div>}
       </div>
@@ -83,25 +83,20 @@ const foundedByParts = String(block.foundedBy ?? "")
     opacity: 0;
   }
 
+  .hero-title-rule {
+    animation: hero-rule-draw 1.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 400ms;
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+
   .hero-reveal-2 {
     animation-delay: 600ms;
   }
 
-  .hero-reveal-3 {
-    animation-delay: 750ms;
-  }
-
-  .hero-reveal-4 {
-    animation-delay: 900ms;
-  }
-
-  .hero-reveal-5 {
-    animation-delay: 1050ms;
-  }
-
   .hero-card-reveal {
     animation: hero-card-reveal 2.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: 1000ms;
+    animation-delay: 1100ms;
     transform-origin: 25% 25%;
     transform: translateY(-10px) rotate(-1deg);
   }
@@ -120,6 +115,12 @@ const foundedByParts = String(block.foundedBy ?? "")
     }
   }
 
+  @keyframes hero-rule-draw {
+    to {
+      transform: scaleX(1);
+    }
+  }
+
   @keyframes hero-card-reveal {
     to {
       opacity: 1;
@@ -130,6 +131,7 @@ const foundedByParts = String(block.foundedBy ?? "")
   @media (prefers-reduced-motion: reduce) {
     .hero-reveal,
     .hero-image-reveal,
+    .hero-title-rule,
     .hero-card-reveal {
       animation: none;
       opacity: 1;

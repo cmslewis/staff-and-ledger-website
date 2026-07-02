@@ -112,6 +112,7 @@ export default function ConcertParchmentCard({
 					"hover:-translate-y-0.5",
 					"p-4",
 					"!text-sand-1",
+					"focus-visible:!outline-sand-6",
 				)}
 				href={href}
 			>
