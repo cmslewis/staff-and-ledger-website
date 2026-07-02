@@ -1,51 +1,69 @@
 {
-  "blocks": [
-    {
-      "sectionLabel": "Welcome",
-      "headline": "Extraordinary _vocal music_. Performed, commissioned, & preserved.",
-      "body": "Staff & Ledger is a new professional vocal ensemble and publishing house dedicated to the music of our time.",
-      "foundedBy": "*Founded by* artists from Chanticleer, Volti, Clerestory, Acternum, Byrd Ensemble, Fog City Singers, American Bach Soloists, and the San Francisco Symphony Chorus.",
-      "image": "/images/hero-stands.webp",
-      "imageAlt": "A dark rehearsal room with warm light on music stands and score folios.",
-      "ctaLabel": "Attend our Jul 23 debut concert in Oakland",
-      "ctaUrl": "/events/archive-of-air",
-      "annotation": "San Francisco",
-      "_template": "hero"
-    },
-    {
-      "sectionLabel": "Current season",
-      "event": "archive-of-air",
-      "_template": "featured_event"
-    },
-    {
-      "sectionLabel": "Institutional work",
-      "items": [
-        {
-          "title": "Perform",
-          "body": "Intimate concerts. New music. World premieres.",
-          "url": "/ensemble",
-          "folio": "01"
-        },
-        {
-          "title": "Publish",
-          "body": "Beautiful editions. Thoughtful scores. Built to last.",
-          "url": "/publishing",
-          "folio": "02"
-        },
-        {
-          "title": "Share",
-          "body": "Rehearsals. Stories. Music in motion.",
-          "url": "/journal",
-          "folio": "03"
-        }
-      ],
-      "_template": "pillar_grid"
-    },
-    {
-      "sectionLabel": "Manifesto",
-      "text": "We believe the choral composer's instrument is people.",
-      "accent": "We exist to help great music travel.",
-      "_template": "manifesto"
-    }
-  ]
+	"blocks": [
+		{
+			"sectionLabel": "Welcome",
+			"headline": "Extraordinary _vocal music_. Performed, commissioned, & preserved.",
+			"body": "Staff & Ledger is a new professional vocal ensemble and publishing house dedicated to the music of our time.",
+			"foundedBy": "*Founded by* artists from Chanticleer, Volti, Clerestory, Acternum, Byrd Ensemble, Fog City Singers, American Bach Soloists, and the San Francisco Symphony Chorus.",
+			"image": "/images/hero-stands.webp",
+			"imageAlt": "A dark rehearsal room with warm light on music stands and score folios.",
+			"annotation": "San Francisco",
+			"concertCard": {
+				"href": "/events/archive-of-air",
+				"kicker": "Attend our debut Concert",
+				"title": "An Archive of Air",
+				"subtitle": "Featuring 5 world premieres",
+				"details": [
+					{
+						"label": "Date",
+						"valueLines": ["Sunday, July 26, 2026", "4:00 PM"]
+					},
+					{
+						"label": "Place",
+						"valueLines": ["Kanbar Performing Arts Center, SF"]
+					},
+					{
+						"label": "Director",
+						"valueLines": ["Kory Reid"]
+					},
+					{
+						"label": "Guest performer",
+						"valueLines": ["Musae (Treble Ensemble)"]
+					}
+				],
+				"ctaLabel": "Reserve tickets"
+			},
+			"_template": "hero"
+		},
+		{
+			"sectionLabel": "Institutional work",
+			"items": [
+				{
+					"title": "Perform",
+					"body": "Intimate concerts. New music. World premieres.",
+					"url": "/ensemble",
+					"folio": "01"
+				},
+				{
+					"title": "Publish",
+					"body": "Beautiful editions. Thoughtful scores. Built to last.",
+					"url": "/publishing",
+					"folio": "02"
+				},
+				{
+					"title": "Share",
+					"body": "Rehearsals. Stories. Music in motion.",
+					"url": "/journal",
+					"folio": "03"
+				}
+			],
+			"_template": "pillar_grid"
+		},
+		{
+			"sectionLabel": "Manifesto",
+			"text": "We believe the choral composer's instrument is people.",
+			"accent": "We exist to help great music travel.",
+			"_template": "manifesto"
+		}
+	]
 }

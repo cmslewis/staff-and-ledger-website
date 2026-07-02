@@ -1,6 +1,6 @@
 ---
 import Button from "../ui/Button.astro";
-import SectionLabel from "../ui/SectionLabel.astro";
+import ConcertParchmentCard from "../cards/ConcertParchmentCard";
 
 const { block } = Astro.props;
 const headlineParts = String(block.headline ?? "")
@@ -15,11 +15,11 @@ const foundedByParts = String(block.foundedBy ?? "")
 <section class="relative min-h-screen overflow-hidden bg-page pt-20">
   <img class="hero-image-reveal absolute inset-0 h-full w-full object-cover" src={block.image} alt={block.imageAlt} loading="eager" />
   <div class="absolute inset-0 bg-[linear-gradient(90deg,var(--color-page)_0%,var(--color-page)_15%,transparent_100%)]"></div>
-  <div class="site-shell relative z-10 flex min-h-[calc(100vh-5rem)] items-center py-[clamp(48px,7vw,96px)]">
-    <div class="w-full">
+  <div class="site-shell relative z-10 grid min-h-[calc(100vh-5rem)] items-center gap-12 py-[clamp(48px,7vw,96px)] lg:grid-cols-12 lg:gap-8">
+    <div class="lg:col-span-8">
 
       <!-- Heading -->
-      <h1 class="hero-reveal my-8 md:max-w-2/3 lg:md:max-w-2/3 font-display text-hero-sm leading-[1.1] text-sand-1 md:mb-12 md:text-hero-md lg:text-hero-lg lg:leading-[1.15]">
+      <h1 class="hero-reveal my-8 font-display text-hero-sm leading-[1.1] text-sand-1 md:mb-12 md:text-hero-md lg:text-hero-lg lg:leading-[1.15]">
         {headlineParts.map((part) =>
           part.startsWith("_") && part.endsWith("_") ? (
             <em class="text-accent italic">{part.slice(1, -1)}</em>
@@ -32,7 +32,7 @@ const foundedByParts = String(block.foundedBy ?? "")
       </h1>
 
 
-      <div class="flex flex-col gap-4 md:gap-6 md:max-w-2/3 lg:max-w-1/2">
+      <div class="flex flex-col gap-4 md:gap-6 lg:max-w-[34rem]">
        <div class="folio-label hero-reveal hero-reveal-2">{block.annotation}</div>
 
         <!-- Blurb -->
@@ -50,15 +50,26 @@ const foundedByParts = String(block.foundedBy ?? "")
         </p>
 
         <!-- Button -->
-        <div class="hero-reveal hero-reveal-5 mt-2">
+        {block.ctaUrl && block.ctaUrl && <div class="hero-reveal hero-reveal-5 mt-2">
           <Button href={block.ctaUrl} label={block.ctaLabel} />
-        </div>
+        </div>}
       </div>
     </div>
+
+    {block.concertCard && (
+      <aside class="hero-reveal hero-card-reveal concert-card-wrap lg:col-span-4 lg:col-start-9" aria-label="Featured concert">
+        <ConcertParchmentCard {...block.concertCard} />
+      </aside>
+    )}
   </div>
 </section>
 
 <style>
+  .concert-card-wrap {
+    justify-self: center;
+    width: min(100%, 26rem);
+  }
+
   .hero-reveal {
     animation: hero-reveal 2.5s cubic-bezier(0.22, 1, 0.36, 1) both;
     opacity: 0;
@@ -73,20 +84,28 @@ const foundedByParts = String(block.foundedBy ?? "")
   }
 
   .hero-reveal-2 {
-    animation-delay: 300ms;
+    animation-delay: 600ms;
   }
 
   .hero-reveal-3 {
-    animation-delay: 400ms;
+    animation-delay: 750ms;
   }
 
   .hero-reveal-4 {
-    animation-delay: 500ms;
+    animation-delay: 900ms;
   }
 
   .hero-reveal-5 {
-    animation-delay: 550ms;
+    animation-delay: 1050ms;
   }
+
+  .hero-card-reveal {
+    animation: hero-card-reveal 2.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 1000ms;
+    transform-origin: 25% 25%;
+    transform: translateY(-10px) rotate(-1deg);
+  }
+
 
   @keyframes hero-reveal {
     to {
@@ -101,12 +120,22 @@ const foundedByParts = String(block.foundedBy ?? "")
     }
   }
 
+  @keyframes hero-card-reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0) rotate(1deg);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .hero-reveal,
-    .hero-image-reveal {
+    .hero-image-reveal,
+    .hero-card-reveal {
       animation: none;
       opacity: 1;
       transform: none;
     }
+
   }
+
 </style>

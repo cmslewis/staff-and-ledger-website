@@ -33,7 +33,29 @@ export const homepageCollection: Collection = {
             { type: "string", name: "imageAlt", label: "Hero image alt text" },
             { type: "string", name: "ctaLabel", label: "Primary button label" },
             { type: "string", name: "ctaUrl", label: "Primary button URL" },
-            { type: "string", name: "annotation", label: "Marginal annotation", ui: { component: "textarea" } }
+            { type: "string", name: "annotation", label: "Marginal annotation", ui: { component: "textarea" } },
+            {
+              type: "object",
+              name: "concertCard",
+              label: "Concert parchment card",
+              fields: [
+                { type: "string", name: "href", label: "Card link" },
+                { type: "string", name: "kicker", label: "Kicker" },
+                { type: "string", name: "title", label: "Title" },
+                { type: "string", name: "subtitle", label: "Subtitle" },
+                {
+                  type: "object",
+                  name: "details",
+                  label: "Details",
+                  list: true,
+                  fields: [
+                    { type: "string", name: "label", label: "Label" },
+                    { type: "string", name: "valueLines", label: "Value lines", list: true }
+                  ]
+                },
+                { type: "string", name: "ctaLabel", label: "Button label" }
+              ]
+            }
           ]
         },
         {
