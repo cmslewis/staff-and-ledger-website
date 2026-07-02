@@ -38,32 +38,43 @@
 		{
 			"sectionLabel": "Institutional work",
 			"items": [
-				{
-					"title": "Perform",
-					"body": "Intimate concerts. New music. World premieres.",
-					"url": "/ensemble",
-					"folio": "01"
-				},
-				{
-					"title": "Publish",
-					"body": "Beautiful editions. Thoughtful scores. Built to last.",
-					"url": "/publishing",
-					"folio": "02"
-				},
-				{
-					"title": "Share",
-					"body": "Rehearsals. Stories. Music in motion.",
-					"url": "/journal",
-					"folio": "03"
-				}
-			],
-			"_template": "pillar_grid"
+        {
+          "title": "Perform",
+          "body": "Intimate concerts.\nNew music.\nWorld premieres.",
+          "url": "/ensemble",
+          "folio": "01",
+          "image": "/images/hero-stands.webp",
+          "imageAlt": "A dark performance room with music stands arranged on a warm lit stage.",
+          "actionLabel": "Open ensemble"
+        },
+        {
+          "title": "Publish",
+          "body": "Beautiful editions.\nThoughtful scores.\nBuilt to last.",
+          "url": "/publishing",
+          "folio": "02",
+          "image": "/images/generated/publishing-folio.png",
+          "imageAlt": "A bound score folio and pencil on a dark wooden table.",
+          "actionLabel": "Open publishing"
+        },
+        {
+          "title": "Share",
+          "body": "Rehearsals.\nStories.\nMusic in motion.",
+          "url": "/journal",
+          "folio": "03",
+          "image": "/images/generated/share-rehearsal.png",
+          "imageAlt": "Singers in a warm, dark rehearsal room with open scores.",
+          "actionLabel": "Open journal"
+        }
+      ],
+      "_template": "pillar_grid"
 		},
 		{
-			"sectionLabel": "Manifesto",
-			"text": "We believe the choral composer's instrument is people.",
-			"accent": "We exist to help great music travel.",
-			"_template": "manifesto"
-		}
+      "sectionLabel": "Manifesto",
+      "text": "We believe the choral composer's instrument is people.",
+      "accent": "We exist to help great music travel.",
+      "ctaLabel": "Learn more",
+      "ctaUrl": "/about",
+      "_template": "manifesto"
+    }
 	]
 }

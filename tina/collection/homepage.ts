@@ -80,7 +80,10 @@ export const homepageCollection: Collection = {
                 { type: "string", name: "title", label: "Card title" },
                 { type: "string", name: "body", label: "Card body text", ui: { component: "textarea" } },
                 { type: "string", name: "url", label: "Card destination page" },
-                { type: "string", name: "folio", label: "Card folio label" }
+                { type: "string", name: "folio", label: "Card folio label" },
+                { type: "image", name: "image", label: "Card image" },
+                { type: "string", name: "imageAlt", label: "Card image alt text" },
+                { type: "string", name: "actionLabel", label: "Accessible action label" }
               ]
             }
           ]
@@ -91,7 +94,9 @@ export const homepageCollection: Collection = {
           fields: [
             { type: "string", name: "sectionLabel", label: "Section label" },
             { type: "string", name: "text", label: "Manifesto statement", ui: { component: "textarea" } },
-            { type: "string", name: "accent", label: "Italic accent line", ui: { component: "textarea" } }
+            { type: "string", name: "accent", label: "Italic accent line", ui: { component: "textarea" } },
+            { type: "string", name: "ctaLabel", label: "Call to action label" },
+            { type: "string", name: "ctaUrl", label: "Call to action URL" }
           ]
         }
       ]

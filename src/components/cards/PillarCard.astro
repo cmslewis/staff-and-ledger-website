@@ -4,14 +4,30 @@ interface Props {
   body: string;
   url: string;
   folio: string;
+  image?: string;
+  imageAlt?: string;
+  actionLabel?: string;
 }
 
-const { title, body, url, folio } = Astro.props;
+const { title, body, url, folio, image, imageAlt, actionLabel = "Open folio" } = Astro.props;
+const bodyLines = String(body ?? "")
+  .split("\n")
+  .map((line) => line.trim())
+  .filter(Boolean);
 ---
 
-<a class="group block border-t border-ink/20 py-8 transition hover:border-rust-1" href={url}>
-  <p class="font-mono text-[0.68rem] uppercase tracking-[0.14em] text-rust-2">{folio}</p>
-  <h3 class="mt-8 font-display text-4xl text-ink">{title}</h3>
-  <p class="mt-5 max-w-sm font-sans text-sm leading-7 text-ink/66">{body}</p>
-  <span class="mt-10 inline-block font-mono text-[0.68rem] uppercase tracking-[0.14em] text-rust-2 transition group-hover:translate-x-2">Open folio</span>
+<a class="group grid min-h-[34rem] border-sand-1/12 px-7 py-8 transition hover:bg-sand-1/[0.03] md:px-10 lg:border-l" href={url}>
+  <div class="relative z-10">
+    <p class="font-mono text-[0.68rem] uppercase tracking-[0.14em] text-accent">{title}</p>
+    <h3 class="mt-7 max-w-[13ch] font-display text-4xl leading-tight text-sand-1 md:text-[2.75rem]">
+      {bodyLines.map((line) => <>{line}<br /></>)}
+    </h3>
+    <span class="mt-8 inline-flex items-center gap-4 font-mono text-xl text-accent transition-[translate] duration-300 group-hover:translate-x-2" aria-label={actionLabel}>→</span>
+  </div>
+  {image && (
+    <div class="relative mt-8 self-end overflow-hidden border border-sand-1/10 bg-sand-6">
+      <img class="aspect-[4/3] h-full w-full object-cover opacity-60 saturate-[0.72] transition duration-500 group-hover:scale-[1.03] group-hover:opacity-78" src={image} alt={imageAlt ?? ""} loading="lazy" />
+      <div class="absolute inset-0 bg-[linear-gradient(180deg,var(--color-page)_0%,transparent_34%,rgb(14_11_6_/_0.18)_100%)]"></div>
+    </div>
+  )}
 </a>
